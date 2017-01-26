@@ -6,7 +6,7 @@ puts 'Welcome to the Ruby Calculator'
 puts 'What is the first Number?'
 begin 
   first_num = gets.chomp
-  first_num = Integer(first_num)
+  first_num = Float(first_num)
 rescue
   puts 'Please enter a number.'
   retry
@@ -25,20 +25,23 @@ end
 
 is_operator
 
-if @operator == '/'
-  #then second_num cannot be zero
-
-
-
-
-
 puts 'What is the second Number?'
-begin 
-  second_num = gets.chomp
-  second_num = Integer(second_num)
-rescue
-  puts 'Please enter a number.'
-  retry
+
+def get_second_number
+  begin 
+    @second_num = gets.chomp
+    @second_num = Float(@second_num)
+  rescue
+    puts 'Please enter a number.'
+    retry
+  end
+end
+
+get_second_number
+
+if @operator == '/' && @second_num == 0
+  puts 'You cannot divide by 0. Enter another number.'
+  get_second_number
 end
 
 # I need to check errors
@@ -67,6 +70,6 @@ def calculate(left_num, op, right_num)
   puts result 
 end
 
-calculate(first_num, @operator, second_num)
+calculate(first_num, @operator, @second_num)
 
 
