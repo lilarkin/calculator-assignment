@@ -44,13 +44,6 @@ if @operator == '/' && @second_num == 0
   get_second_number
 end
 
-# I need to check errors
-# input errors for numbers and functions
-# mathematical errors, i.e., cannot divide by 0
-
-# def equation(left_num, operator, right_num)
-# end
-
 def calculate(left_num, op, right_num)
   case op
     when '+'
